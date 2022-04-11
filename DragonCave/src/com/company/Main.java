@@ -12,8 +12,14 @@ public class Main {
                  "The other dragon is greedy and hungry and will eat you in sight.\n" +
                  "Which cave will you go into? (1 or 2)");
 
-         Scanner input = new Scanner(System.in);
-         int chooseWisely = input.nextInt();
+        Scanner input = new Scanner(System.in);
+        int chooseWisely = 0;
+
+        try {
+            chooseWisely = input.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
 
          if (chooseWisely == 1) {
              System.out.println("You approach the cave...\n" +

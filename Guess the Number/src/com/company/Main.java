@@ -8,9 +8,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         boolean playAgain = true;
+        String userName = "";
 
         System.out.println("Hello, what is your name?");
-        String userName = input.nextLine();
+        try {
+            userName = input.nextLine();
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
         System.out.println("Well, " + userName + ", I am thinking of a number between 1 and 20.");
 
         while (playAgain == true) {
@@ -20,7 +25,11 @@ public class Main {
 
            while(guess != correctAnswer && attempt < 6) {
                System.out.println("Take a guess");
-               guess = Integer.parseInt(input.nextLine());
+               try {
+                   guess = Integer.parseInt(input.nextLine());
+               } catch (Exception e) {
+                   System.out.println("ERROR");
+               }
                attempt++;
 
                if(guess < correctAnswer) {
@@ -37,7 +46,11 @@ public class Main {
                }
            }
             System.out.println("Would you like to play again? (y/n)");
-           playAgain = input.nextLine().equals("y");
+           try {
+               playAgain = input.nextLine().equals("y");
+           } catch (Exception e) {
+               System.out.println("ERROR");
+           }
         }
 
 
